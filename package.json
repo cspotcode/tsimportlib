@@ -16,5 +16,9 @@
         "esm",
         "async",
         "modules"
+    ],
+    "files": [
+        "/index.d.ts",
+        "/index.js"
     ]
 }
