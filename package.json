@@ -1,0 +1,20 @@
+{
+    "name": "tsimportlib",
+    "version": "0.0.0",
+    "author": {
+        "name": "Andrew Bradley",
+        "email": "cspotcode@gmail.com",
+        "url": "https://github.com/cspotcode"
+    },
+    "homepage": "https://github.com/cspotcode/tsimportlib",
+    "bugs": "https://github.com/cspotcode/tsimportlib/issues",
+    "keywords": [
+        "dynamic import",
+        "import",
+        "typescript",
+        "commonjs",
+        "esm",
+        "async",
+        "modules"
+    ]
+}
