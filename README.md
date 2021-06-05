@@ -13,12 +13,12 @@ This library implements a workaround.  Replace `import('lib')` with `dynamicImpo
 import {dynamicImport} from 'tsimportlib';
 
 async function main() {
-    const dynamicallyImportedEsmModule = await dynamicImport(module, 'truly-esm-module') as typeof import('truly-esm-module');
+    const dynamicallyImportedEsmModule = await dynamicImport('truly-esm-module', module) as typeof import('truly-esm-module');
 }
 
 async function loadPlugin(name: string) {
     // In this example, plugins may or may not be native ESM, so we use dynamic import to support both.
-    const dynamicallyImportedPlugin = await dynamicImport(module, name) as MyPluginInterface;
+    const dynamicallyImportedPlugin = await dynamicImport(name, module) as MyPluginInterface;
 }
 ```
 
