@@ -1,5 +1,7 @@
 ## Dynamic import within TS compiled to CommonJS
 
+> Currently an alpha-quality, best-effort implementation.
+
 Node.js allows dynamic `import()` calls within CommonJS file.  TypeScript transforms `import()` into `require()` when targetting CommonJS.
 
 This presents a problem when a `.ts` file compiled to CommonJS wants to do a truly async, dynamic import of a native ESM module.  How do we
@@ -19,3 +21,10 @@ async function loadPlugin(name: string) {
     const dynamicallyImportedPlugin = await dynamicImport(module, name) as MyPluginInterface;
 }
 ```
+
+### Limitations
+
+Due to Node.js limitations, we must use the CommonJS resolver to locate modules.
+This should work well enough for third-party modules, but may not work for dual-mode modules
+or ones that suppress importing of their package.json file.  As a fallback you can pass an absolute path
+to the target module.
