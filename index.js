@@ -5,7 +5,7 @@ exports.dynamicImport = importEsm;
 exports.importEsm = importEsm;
 
 async function importEsm(specifier, module) {
-    if(isAbsolute) {
+    if(isAbsolute(specifier)) {
         return import(specifier);
     }
     let resolvedPath;
