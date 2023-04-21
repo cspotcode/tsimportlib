@@ -1,6 +1,7 @@
 ## Dynamic import within TS compiled to CommonJS
 
-> Currently an alpha-quality, best-effort implementation.
+> Currently an alpha-quality, best-effort implementation.  
+> May be unnecessary if you use TypeScript's `"module": "NodeNext", "moduleResolution": "NodeNext"`
 
 Node.js allows dynamic `import()` calls within CommonJS file.  TypeScript transforms `import()` into `require()` when targetting CommonJS.
 
