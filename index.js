@@ -1,3 +1,4 @@
+const os = require('os');
 const Module = require('module');
 const {isAbsolute} = require('path');
 
@@ -15,6 +16,9 @@ async function importEsm(specifier, module) {
             resolvedPath = req.resolve(Path.posix.join(specifier, 'package.json'));
         } catch {
             resolvedPath = req.resolve(specifier);
+        }
+        if(os.platform() === "win32") {
+            resolvedPath = 'file://' + resolvedPath
         }
     } catch {
         throw new Error(`Unable to locate module "${specifier}" relative to "${module?.filename}" using the CommonJS resolver.  Consider passing an absolute path to the target module.`);
