@@ -6,6 +6,7 @@
         "email": "cspotcode@gmail.com",
         "url": "https://github.com/cspotcode"
     },
+    "license": "MIT",
     "homepage": "https://github.com/cspotcode/tsimportlib",
     "bugs": "https://github.com/cspotcode/tsimportlib/issues",
     "keywords": [
