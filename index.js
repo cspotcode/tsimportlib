@@ -1,5 +1,6 @@
 const Module = require('module');
 const {isAbsolute} = require('path');
+const { pathToFileURL } = require('url');
 
 exports.dynamicImport = importEsm;
 exports.importEsm = importEsm;
@@ -19,5 +20,5 @@ async function importEsm(specifier, module) {
     } catch {
         throw new Error(`Unable to locate module "${specifier}" relative to "${module?.filename}" using the CommonJS resolver.  Consider passing an absolute path to the target module.`);
     }
-    return import(resolvedPath);
+    return import(pathToFileURL(resolvedPath).href);
 }
