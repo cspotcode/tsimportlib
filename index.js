@@ -1,6 +1,6 @@
-const os = require('os');
 const Module = require('module');
 const {isAbsolute} = require('path');
+const {pathToFileURL} = require('url')
 
 exports.dynamicImport = importEsm;
 exports.importEsm = importEsm;
@@ -17,9 +17,7 @@ async function importEsm(specifier, module) {
         } catch {
             resolvedPath = req.resolve(specifier);
         }
-        if(os.platform() === "win32") {
-            resolvedPath = 'file://' + resolvedPath
-        }
+        resolvedPath = pathToFileURL(resolvedPath).href;
     } catch {
         throw new Error(`Unable to locate module "${specifier}" relative to "${module?.filename}" using the CommonJS resolver.  Consider passing an absolute path to the target module.`);
     }
