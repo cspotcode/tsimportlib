@@ -7,7 +7,7 @@ exports.importEsm = importEsm;
 
 async function importEsm(specifier, module) {
     if(isAbsolute(specifier)) {
-        return import(specifier);
+        return import(pathToFileURL(specifier).href);
     }
     let resolvedPath;
     try {
