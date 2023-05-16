@@ -1,6 +1,6 @@
 const Module = require('module');
 const {isAbsolute} = require('path');
-const {pathToFileURL} = require('url')
+const {pathToFileURL} = require('url');
 
 exports.dynamicImport = importEsm;
 exports.importEsm = importEsm;
